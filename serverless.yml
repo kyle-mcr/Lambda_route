@@ -1,0 +1,19 @@
+service: route-serverless
+
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+ 
+functions:
+  routing:
+    handler: handler.routing
+    events:
+      - http:
+          path: routing
+          method: post
+plugins:
+  - serverless-offline
